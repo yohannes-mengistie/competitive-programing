@@ -1,0 +1,10 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+        replace = True 
+        while replace :
+            length  = len(s)
+            for i in ['()','[]','{}']:
+                s = s.replace(i,'')
+            if length == len(s):
+                replace = False
+        return s == ''
