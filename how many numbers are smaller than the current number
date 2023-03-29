@@ -1,0 +1,17 @@
+class Solution(object):
+    def smallerNumbersThanCurrent(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+        sortedNum = sorted(nums)
+        D = {}
+        output = []
+        for i in range(len(sortedNum)):
+            if sortedNum[i]  not in D:
+                D[sortedNum[i]]=i
+
+        for j in nums :
+            output.append(D[j])
+
+        return output
