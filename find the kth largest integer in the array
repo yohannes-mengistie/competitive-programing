@@ -1,0 +1,14 @@
+class Solution(object):
+    def kthLargestNumber(self, nums, k):
+        """
+        :type nums: List[str]
+        :type k: int
+        :rtype: str
+        """
+        max =[-int(n) for n in nums]
+        heapq.heapify(max)
+        while k>1:
+            heapq.heappop(max)
+            k -=1
+
+        return str(-max[0])
