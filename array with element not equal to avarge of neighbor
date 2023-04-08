@@ -1,0 +1,18 @@
+class Solution(object):
+    def rearrangeArray(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+        nums.sort()
+        res =[]
+        lef , rig = 0,len(nums)-1
+        while len(res)!=len(nums):
+            res.append(nums[lef])
+            lef+=1
+
+            if lef <rig:
+                res.append(nums[rig])
+                rig -=1
+
+        return res
