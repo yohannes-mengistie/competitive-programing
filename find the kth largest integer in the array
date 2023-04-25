@@ -5,7 +5,9 @@ class Solution(object):
         :type k: int
         :rtype: str
         """
-        max =[-int(n) for n in nums]
+        max =[]
+        for n in nums:
+          max.append(-int(n))
         heapq.heapify(max)
         while k>1:
             heapq.heappop(max)
