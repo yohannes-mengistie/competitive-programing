@@ -1,0 +1,7 @@
+n,k = map(int,input().split())
+arr = [1]+list(map(int,input().split()))
+arr.sort()
+if n == k or arr[k] != arr[k+1]:
+    print(arr[k])
+else:
+    print(-1)
