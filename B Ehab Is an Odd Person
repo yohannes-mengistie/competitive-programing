@@ -1,0 +1,13 @@
+input()
+arr = list(map(int,input().split()))
+e,o =0,0
+for i in arr:
+    if i%2==0:
+        e +=1
+    else:
+        o +=1
+if e!=0 and o!=0:
+    arr.sort()
+    print(*arr)
+else:
+    print(*arr)
