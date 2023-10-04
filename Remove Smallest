@@ -1,0 +1,15 @@
+t = int(input())
+for _ in range(t):
+    input()
+    arr = list(map(int,input().split()))
+    arr.sort()
+    res = True
+    for i in range(1,len(arr)):
+        if abs(arr[i] -arr[i-1]) > 1:
+            res = False
+            break
+    if res:
+        print("YES")
+    else:
+        print("NO")
+    
