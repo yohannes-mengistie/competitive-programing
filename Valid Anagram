@@ -1,0 +1,22 @@
+import locale
+class Solution(object):
+    def isAnagram(self, s, t):
+        """
+        :type s: str
+        :type t: str
+        :rtype: bool
+        """
+        ss=sorted(s)
+        tt =sorted(t)
+        i,j = 0,0
+        while i<len(s) and j<len(t):
+            if len(ss) ==len(tt):
+               if ss[i]!=tt[j]:
+                  return False
+            else:
+                return False
+            i +=1
+            j +=1
+        return True
+
+        
