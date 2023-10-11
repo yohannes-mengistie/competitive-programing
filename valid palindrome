@@ -1,0 +1,37 @@
+class Solution(object):
+    def validPalindrome(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        i,j = 0,len(s)-1
+        while i<j:
+            if s[i] != s[j]:
+               l2,r2,l3,r3 = i+1,j,i,j-1
+               f,se = True,True
+               while l2<r2:
+                   if s[l2]!=s[r2]:
+                       f = False
+                       break
+                   l2 +=1
+                   r2 -=1
+               while l3<r3:
+                   if s[l3]!=s[r3]:
+                       se =False
+                       break
+                   l3 +=1
+                   r3 -=1
+               if f or se:
+                  return True
+               else:
+                    return False
+            i +=1
+            j -=1
+            
+                
+            
+        return True
+
+
+                
+                
