@@ -4,12 +4,19 @@ class Solution(object):
         :type nums: List[int]
         :rtype: None Do not return anything, modify nums in-place instead.
         """
-        for j in range(len(nums)):
-            color = nums[j]
-            i = j
-            while i>0 and nums[i-1]>color:
-                nums[i]=nums[i-1]
+        def swap(i,j):
+            nums[i],nums[j] = nums[j],nums[i]
+        k,j = 0 ,len(nums)-1
+        i = 0
+        while i<=j:
+            if nums[i] == 0:
+                swap(k,i)
+                k +=1
+            elif nums[i] == 2:
+                swap(i,j)
+                j -=1
                 i -=1
-
-            nums[i] = color
-        print(nums)
+                
+            i +=1
+        return nums
+            
