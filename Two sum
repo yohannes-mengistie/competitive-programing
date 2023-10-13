@@ -1,0 +1,23 @@
+class Solution(object):
+    def twoSum(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        i = j = 0
+        ans = []
+        hashmap = {}
+        for i,v in enumerate(nums):
+            res = target - v
+            if (res) not in hashmap:
+                hashmap[v] = i
+            else:
+                ans.append(hashmap[res])
+                ans.append(i)
+        return ans
+
+
+                    
+
+        
