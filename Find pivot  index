@@ -1,0 +1,17 @@
+class Solution(object):
+    def pivotIndex(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        cur_sum = 0
+        left = 0
+        for i in nums:
+            cur_sum +=i
+        for j in range(len(nums)):
+            right = cur_sum - nums[j] - left
+            if right == left:
+                return j
+            left += nums[j]
+        return -1
+
