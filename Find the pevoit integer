@@ -1,0 +1,17 @@
+class Solution(object):
+    def pivotInteger(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        total = 0
+        left = 0
+        for i in range(n+1):
+            total +=i
+        for j in range(n+1):
+            right = total - left- j
+            if right == left:
+                return j
+            left +=j
+        return -1
+        
