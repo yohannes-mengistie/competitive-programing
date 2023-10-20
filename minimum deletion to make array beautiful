@@ -1,0 +1,12 @@
+class Solution(object):
+    def minDeletion(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        ans = 0
+        for index in range(0,len(nums)-1):
+            if nums[index] == nums[index+1] and (index-ans)%2==0:
+                ans +=1
+        return ans +(len(nums)-ans)%2
+
