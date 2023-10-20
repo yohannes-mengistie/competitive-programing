@@ -1,0 +1,24 @@
+class Solution(object):
+    def minSubArrayLen(self, target, nums):
+        """
+        :type target: int
+        :type nums: List[int]
+        :rtype: int
+        """
+        le =0
+        ans =0
+        count = len(nums)+1
+        for i in range(len(nums)):
+            ans += nums[i]
+            while ans >= target:
+                ans -= nums[le]
+                count = min(count,i-le+1)
+                le +=1
+        if count == len(nums)+1:
+            return 0
+        else:
+            return count
+
+        
+
+
