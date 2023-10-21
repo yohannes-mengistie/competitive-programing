@@ -1,0 +1,29 @@
+class Solution(object):
+    def frequencySort(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+        hashmap = {}
+        for num in nums: 
+            if num in hashmap:
+                hashmap[num] +=1
+            else:
+                hashmap[num] = 1
+        
+        res = []
+        for key in hashmap:
+            
+            res.append([hashmap[key],-key])
+        res.sort()
+        ans = []
+        for fre,val in res:
+            val = -val
+                
+            while fre >0:
+                ans.append(val)
+                fre -=1
+
+        return ans
+        
+        
