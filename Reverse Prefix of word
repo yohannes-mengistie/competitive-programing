@@ -1,0 +1,21 @@
+class Solution(object):
+    def reversePrefix(self, word, ch):
+        """
+        :type word: str
+        :type ch: str
+        :rtype: str
+        """
+        left = right = 0
+        ans = ""
+        while right < len(word):
+            if word[right] == ch:
+                res = word[:right+1]
+                res = res[::-1]
+                ans = res + word[right+1:]
+                break
+            right +=1
+
+        if ans == "":
+            return word
+        else:
+           return ans
