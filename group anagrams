@@ -1,0 +1,19 @@
+class Solution(object):
+    def groupAnagrams(self, strs):
+        """
+        :type strs: List[str]
+        :rtype: List[List[str]]
+        """
+        hashmap = {}
+        for word in strs:
+            ans = "".join(sorted(word))
+            if ans not in hashmap:
+                hashmap[ans] = [word]
+            else:
+                hashmap[ans].append(word)
+        output = []
+        for val in hashmap.values():
+            output.append(val)
+        return output
+            
+
