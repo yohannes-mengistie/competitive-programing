@@ -1,0 +1,24 @@
+class Solution(object):
+    def findRelativeRanks(self, score):
+        """
+        :type score: List[int]
+        :rtype: List[str]
+        """
+        medal = ["Gold Medal","Silver Medal","Bronze Medal"]
+        ans = [""]*len(score)
+        hashmap = {}
+        new = sorted(score,reverse = True)
+        for ind in range(len(new)):
+            hashmap[score[ind]] = ind
+        for index in range(len(score)):
+            if index<3:
+               ans[hashmap[new[index]]] = medal[index]
+                
+            else:
+                ans[hashmap[new[index]]] = str(index + 1)
+                
+
+        return ans
+
+        
+        
