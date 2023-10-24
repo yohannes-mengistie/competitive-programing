@@ -1,0 +1,19 @@
+class Solution(object):
+    def countCompleteSubarrays(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        count = 0
+        len_set = len(set(nums))
+        for i in range(len(nums)):
+            sub_set = set()
+            for j in range(i,len(nums)):
+                sub_set.add(nums[j])
+                if len(sub_set) == len_set:
+                    count +=1
+
+
+        return count
+            
+            
