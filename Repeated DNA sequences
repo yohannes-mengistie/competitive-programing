@@ -1,0 +1,23 @@
+class Solution(object):
+    def findRepeatedDnaSequences(self, s):
+        """
+        :type s: str
+        :rtype: List[str]
+        """
+        hashmap = {}
+        left = 0 ; right = 9
+        while right < len(s):
+            sub_string = s[left:right+1]
+            if sub_string not in hashmap:
+                hashmap[sub_string] = 1
+            else:
+                hashmap[sub_string] +=1
+
+            left +=1;right +=1
+
+        output = []
+        for key in hashmap.keys():
+            if hashmap[key] > 1:
+                output.append(key)
+        return output
+        
