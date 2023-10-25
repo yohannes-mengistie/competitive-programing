@@ -1,0 +1,29 @@
+class Solution(object):
+    def isHappy(self, n):
+        """
+        :type n: int
+        :rtype: bool
+        """
+
+        res = set()
+        while n not in res:
+            res.add(n)
+            n = self.squreSum(n)
+            if n == 1:
+                return True
+
+        return False
+
+    def squreSum(self, n):
+        ans = 0
+
+        while n>0:
+            val = n%10
+            val = val**2
+            ans +=val
+            n = n//10
+
+        return ans
+   
+
+        
