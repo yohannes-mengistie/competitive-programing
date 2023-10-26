@@ -1,0 +1,17 @@
+class Solution(object):
+    def findPrefixScore(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+        
+        ans = []
+        ma = 0
+        for num in nums:
+            ma = max(num,ma)
+            if len(ans)>0:
+                ans.append(num+ma+ans[-1])
+                
+            else:
+                ans.append(num+ma)
+        return ans
