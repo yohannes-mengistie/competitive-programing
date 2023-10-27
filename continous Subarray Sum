@@ -1,0 +1,20 @@
+class Solution(object):
+    def checkSubarraySum(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: bool
+        """
+        sum_=0
+        hashmap ={0:-1}
+        for ind in range(len(nums)):
+            sum_=sum_+nums[ind]
+            print(nums[0]%k)
+            
+            sum_ = sum_%k
+            if sum_ in hashmap:
+                if ind-hashmap[sum_]>=2:
+                    return True
+            else:
+                hashmap[sum_]=ind
+        return False
