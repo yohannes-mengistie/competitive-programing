@@ -1,0 +1,13 @@
+class Solution(object):
+    def reverseStr(self, s, k):
+        """
+        :type s: str
+        :type k: int
+        :rtype: str
+        """
+        l = 0 
+        s = list(s)
+        while l < len(s):
+            s[l:k+l] = (s[l:k+l])[::-1]
+            l += (k*2)
+        return "".join(s)
