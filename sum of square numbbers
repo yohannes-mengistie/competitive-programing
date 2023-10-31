@@ -1,0 +1,13 @@
+class Solution(object):
+    def judgeSquareSum(self, c):
+        """
+        :type c: int
+        :rtype: bool
+        """
+        res = int(sqrt(c))
+        for a in range(res+1):
+            b = sqrt(c-(a*a))
+            if int(b) == b:
+                return True
+        return False
+        
