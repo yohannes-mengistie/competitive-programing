@@ -1,0 +1,31 @@
+class Solution(object):
+    def subdomainVisits(self, cpdomains):
+        """
+        :type cpdomains: List[str]
+        :rtype: List[str]
+        """
+        hashmap = {}
+        
+        def break_domain(count, domain):
+            if domain in hashmap:
+                hashmap[domain] += count
+            else:
+                hashmap[domain] = count
+            
+            # find the first '.' or until end of string
+            for i in range(len(domain)):
+                if domain[i] == '.':
+                    break_domain(count, domain[i+1:])
+                    return
+        
+        for cp in cpdomains:
+            split = cp.split(" ")
+            break_domain(int(split[0]), split[1])
+        
+        # now iterate hashmap and get each
+        return [str(hashmap[key]) + " " + key for key in hashmap]
+             
+        
+
+
+        
