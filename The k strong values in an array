@@ -1,0 +1,30 @@
+class Solution(object):
+    def getStrongest(self, arr, k):
+        """
+        :type arr: List[int]
+        :type k: int
+        :rtype: List[int]
+        """
+        arr.sort()
+        mid = (len(arr)-1)//2
+        res = []
+        for num in arr:
+            ans = abs(arr[mid]-num)
+            res.append(ans)
+        output = []
+    
+        left = 0 ; right = len(arr)-1
+        while left <= right:
+            if res[left] > res[right]:
+                output.append(arr[left])
+                left +=1
+            else:
+                output.append(arr[right])
+                right -=1
+        return output[:k]
+            
+
+        
+        
+
+        
