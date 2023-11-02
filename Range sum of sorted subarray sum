@@ -1,0 +1,21 @@
+class Solution(object):
+    def rangeSum(self, nums, n, left, right):
+        """
+        :type nums: List[int]
+        :type n: int
+        :type left: int
+        :type right: int
+        :rtype: int
+        """
+        new = []
+        
+        for i in range(len(nums)):
+            ans = 0
+            for j in range(i,len(nums)):
+                ans += nums[j]
+                new.append(ans)
+        new.sort()
+        output = sum(new[left-1:right])
+        return (output)%(10**9 + 7)
+
+        
