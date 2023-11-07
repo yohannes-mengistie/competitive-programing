@@ -1,0 +1,21 @@
+class Solution(object):
+    def nextGreaterElement(self, nums1, nums2):
+        """
+        :type nums1: List[int]
+        :type nums2: List[int]
+        :rtype: List[int]
+        """
+        hashmap = {}
+        stack = []
+        ans = []
+        stack.append(nums2[0])
+        for ind in range(1,len(nums2)):
+            while stack and nums2[ind] > stack[-1]:
+                hashmap[stack[-1]] = nums2[ind]
+                stack.pop()
+            stack.append(nums2[ind])
+        for element in stack:
+            hashmap[element] = -1
+        for num in nums1:
+            ans.append(hashmap[num])
+        return ans
