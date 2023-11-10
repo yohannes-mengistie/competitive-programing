@@ -1,0 +1,17 @@
+class Solution(object):
+    def makeGood(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        stack = []
+        for i in s:
+            if stack and stack[-1].isupper() and stack[-1].lower() == i:
+                stack.pop()
+            elif stack and stack[-1].islower() and stack[-1].upper() == i:
+                stack.pop()
+            
+            else:
+                stack.append(i)
+        return "".join(stack)
+        
