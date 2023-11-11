@@ -1,0 +1,27 @@
+class Solution(object):
+    def majorityElement(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+        hashmap = {}
+        
+        for num in nums:
+            if num in hashmap:
+                hashmap[num] +=1
+            else:
+                hashmap[num] = 1
+        res = len(nums) // 3
+        ans = []
+        
+    
+        for key in hashmap.keys():
+            if len(nums) <= 2 and hashmap[key] >1:
+               ans.append(key)
+            elif len(nums) <= 2 and hashmap[key] == 1:
+                ans.append(key)
+            elif hashmap[key] > res:
+                ans.append(key)
+            
+        return ans
+    
