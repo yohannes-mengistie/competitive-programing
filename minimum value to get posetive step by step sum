@@ -1,0 +1,16 @@
+class Solution(object):
+    def minStartValue(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        prefix = []
+        ans = 0
+        for num in nums:
+            ans +=num
+            prefix.append(ans)
+        min_ = min(prefix)
+        if min_ < 0:
+           return abs(min_) + 1
+        else:
+            return 1
