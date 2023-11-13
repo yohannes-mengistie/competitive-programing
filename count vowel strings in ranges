@@ -1,0 +1,33 @@
+class Solution(object):
+    def vowelStrings(self, words, queries):
+        """
+        :type words: List[str]
+        :type queries: List[List[int]]
+        :rtype: List[int]
+        """
+        vowel = "aeiou"
+        hashmap = {}
+        for ind in range(len(words)):
+            res = words[ind]
+            if res[0] in vowel and res[-1] in vowel:
+                hashmap[ind] = 1
+            else:
+                hashmap[ind] = 0
+        ans = []
+        sum_ = 0
+        for value in hashmap.values():
+            sum_ += value
+            ans.append(sum_)
+        output = []
+        for x,y in queries:
+            if x>0:
+               output.append(ans[y]-ans[x-1])
+            else:
+                output.append(ans[y])
+        return output
+
+
+        
+
+
+        
