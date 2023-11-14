@@ -1,0 +1,23 @@
+class Solution(object):
+    def maxCount(self, banned, n, maxSum):
+        """
+        :type banned: List[int]
+        :type n: int
+        :type maxSum: int
+        :rtype: int
+        """
+        if maxSum == 1:
+            return 0
+        banned = set(banned)
+        count = 0
+        ans = 0
+        for ind in range(1,n+1):
+            if ind not in banned:
+                if (ans+ind) > maxSum:
+                    return count
+                count +=1
+                ans +=ind
+        return count
+
+
+        
