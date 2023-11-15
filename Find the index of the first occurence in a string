@@ -1,0 +1,21 @@
+class Solution(object):
+    def strStr(self, haystack, needle):
+        """
+        :type haystack: str
+        :type needle: str
+        :rtype: int
+        """
+        hashmap = {}
+        n = len(needle)
+        left = 0; right = n
+        while right<=len(haystack):
+            if haystack[left:right] not in hashmap:
+                hashmap[haystack[left:right]] = left
+            left +=1
+            right +=1
+        print(hashmap)
+        if needle in hashmap:
+            return hashmap[needle]
+        else:
+            return -1
+        
