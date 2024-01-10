@@ -12,4 +12,4 @@ class Solution:
                 left +=1
             max_conscutive = max(max_conscutive,i-left+1)
 
-         return max_conscutive
+        return max_conscutive
