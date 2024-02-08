@@ -1,17 +1,22 @@
 class Solution:
     def carPooling(self, trips: List[List[int]], capacity: int) -> bool:
-        maxx = float("-inf")
-        for i in range(len(trips)):
-            maxx = max(maxx,trips[i][2])
-        prifix = [0]*(maxx+1)
+        prifix = [0]*1001
 
         for trip in trips:
-            i,j,k = trip
-            for n in range(j,k):
-                prifix[n] += i
+            num_pas = trip[0]
+            start = trip[1]
+            end = trip[2]
 
-        ans = max(prifix)
-        if ans > capacity:
-            return False
-        else:
-            return True
+            prifix[start] +=num_pas
+            prifix[end] -=num_pas
+
+        for  i in range(1,1001):
+            prifix[i] +=prifix[i-1]
+
+        for trip in trips:
+            start = trip[1]
+            end = trip[2]
+
+            if prifix[start]>capacity or prifix[end] > capacity:
+                return False
+        return True
