@@ -8,10 +8,12 @@ for _ in range(int(input())):
     
     for i in range(n):
         prefix += int(arr[i])
-        x = prefix -  i -1
+        x = prefix -  (i+1)
         if x not in dic:
-            dic[x] = 0
-        dic[x] +=1
-        ans += dic[x] -1
+            dic[x] = 1
+        else:
+           ans += dic[x]
+           dic[x] +=1
+        
         
     print(ans)
