@@ -3,10 +3,12 @@ class Solution:
         """
         Do not return anything, modify s in-place instead.
         """
-        left = 0 ; right = len(s)-1
-        while left < right:
-            s[left],s[right] = s[right],s[left]
-            left +=1
-            right -=1
+        def reverseA(s,st,end):
+            if st >= end:
+                return 
+            else:
+                s[st],s[end] = s[end],s[st]
+                return reverseA(s,st+1,end-1)
+        return reverseA(s,0,len(s)-1)
+    
 
-        return s
