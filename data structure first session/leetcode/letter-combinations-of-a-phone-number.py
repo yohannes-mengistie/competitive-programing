@@ -10,13 +10,22 @@ class Solution:
         '8':'tuv',
         '9':'wxyz',
         }
-        if not digits :
-            return []
-        output = ['']
-        for i in digits:
-            res = []
-            for j in sample[i]:
-                for k in output:
-                    res.append(k+j)
-            output = res
-        return output
+        ans = []
+        path = []
+        if not digits:
+            return ans
+        def combination(idx):
+            if  idx >= len(digits):
+                ans.append("".join(path))
+                return
+           
+            for j in sample[digits[idx]]:
+                path.append(j)
+
+                combination(idx+1)
+                path.pop()
+    
+
+        combination(0)
+        return ans        
+                
