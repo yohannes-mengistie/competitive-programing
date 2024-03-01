@@ -9,6 +9,7 @@ class Solution:
         def converter(left,right):
             if left > right:
                 return None
+            
             mid =(left+right)//2
             node = TreeNode(nums[mid])
             node.left = converter(left,mid-1)
