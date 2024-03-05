@@ -1,18 +1,11 @@
 class Solution:
-    def depthFirstSearch(self, n: int, k: int, rootVal: int) -> int:
-        if n == 1:
-            return rootVal
-
-        totalNodes = 2 ** (n - 1)
-
-        
-        if k > (totalNodes / 2):
-            nextRootVal = 1 if rootVal == 0 else 0
-            return self.depthFirstSearch(n - 1, k - (totalNodes / 2), nextRootVal)
-    
-        else:
-            nextRootVal = 0 if rootVal == 0 else 1
-            return self.depthFirstSearch(n - 1, k, nextRootVal)
-
     def kthGrammar(self, n: int, k: int) -> int:
-        return self.depthFirstSearch(n, k, 0)
+        if n == 1:
+            return 0
+        node = self.kthGrammar(n-1,math.ceil(k/2))
+        check = k%2 == 1
+        if node == 1:
+            return 1 if check else 0
+        else:
+            return 0 if check else 1
+    
